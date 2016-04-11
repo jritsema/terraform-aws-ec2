@@ -1,8 +1,8 @@
-### terraform-aws-ec2
+# terraform-aws-ec2
 
 A module that launches a properly tagged ec2 instance into a specified vpc/subnet.
 
-usage
+### Usage
 
 ```terraform
 module "ec2" {
@@ -12,6 +12,7 @@ module "ec2" {
   ami = "ami-fce3c696"
   instance_type = "t2.small"
   subnet_id = "subnet-4a887f3c"
+  vpc_security_group_ids = "sg-2aa8cd63,sg-2aa8cd64"
 
   tag_name = "ec2 instance"
   tag_description = "test ec2 instance"
@@ -30,6 +31,7 @@ module "ec2" {
 - `instance_type` - Instance type for instance (default: `t2.small`)
 - `number_of_instances` (default: 1)
 - `subnet_id` - subnet to launch in
+- `vpc_security_group_ids` - comma-delimited list of security group ids to attach to instance
 - `tag_name`
 - `tag_description`
 - `tag_creator`
