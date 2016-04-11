@@ -11,7 +11,6 @@ module "ec2" {
   key_name = "mykey"
   ami = "ami-fce3c696"
   instance_type = "t2.small"
-  number_of_instances = "1"
   subnet_id = "subnet-4a887f3c"
 
   tag_name = "ec2 instance"
@@ -29,10 +28,8 @@ module "ec2" {
 
 - `key_name` - key name for ssh access
 - `instance_type` - Instance type for instance (default: `t2.small`)
-- `number_of_instances`
-- `vpc_id` - ID of VPC that houses the ec2 instance
+- `number_of_instances` (default: 1)
 - `subnet_id` - subnet to launch in
-
 - `tag_name`
 - `tag_description`
 - `tag_creator`
@@ -44,4 +41,4 @@ module "ec2" {
 
 ### Outputs
 
-- `security_group_id` - Security group ID of the instance
+- `ec2_instance_id` - the ID of the EC2 instance created
